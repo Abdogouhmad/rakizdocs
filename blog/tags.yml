@@ -1,0 +1,14 @@
+mobile:
+  label: 'Mobile'
+  permalink: '/Mobile'
+  description: 'Articles on the topic mobile dev'
+
+android:
+  label: 'Andriod'
+  permalink: '/android'
+  description: 'Articles on the topic android'
+
+flutter:
+  label: 'Flutter'
+  permalink: '/flutter'
+  description: 'Articles on the topic flutter'
