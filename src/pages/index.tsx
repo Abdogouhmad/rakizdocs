@@ -20,7 +20,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <a
             className="button button--secondary button--lg"
-            href="/assets/apks/rakiz-v0.2.3.apk"
+            href="/assets/apks/rakiz-v0.2.4.apk"
             download
           >
             Download Now →
