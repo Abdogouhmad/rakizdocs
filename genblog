@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+# ──────────────────────────────────────────────────────
+# COLORS
+NO_FORMAT="\033[0m"
+C_PURPLE="\033[38;5;5m"
+C_YELLOW="\033[38;5;11m"
+C_GREEN="\033[38;5;28m"
+C_RED="\033[38;5;196m"
+
+# ──────────────────────────────────────────────────────
+# GLOBAL VARS
+NOW="$(date +"%Y-%m-%d")"
+YEAR="$(date +"%Y")"
+BASE="./blog/$YEAR"
+BASE_NOW="$BASE/$NOW"
+
+# ──────────────────────────────────────────────────────
+# UTILITIES
+
+print() {
+  local COLOR="$1"
+  local TEXT="$2"
+  printf "%b\n" "${COLOR}${TEXT}${NO_FORMAT}"
+}
+
+error() {
+  print "$C_RED" "✖ $1"
+  exit 1
+}
+
+ask() {
+  local COLOR="$1"
+  local TEXT="$2"
+  printf "%b" "${COLOR}${TEXT}${NO_FORMAT}"
+}
+
+# ──────────────────────────────────────────────────────
+# CORE FUNCTIONS
+
+genfolder() {
+  mkdir -p "$BASE_NOW" || error "Failed to create folder: $BASE_NOW"
+  print "$C_GREEN" "✔ Folder created → $BASE_NOW"
+}
+
+genmdfile() {
+  local suffix="$1"
+  [[ -z "$suffix" ]] && error "File suffix cannot be empty"
+
+  local path="$BASE/$NOW-$suffix.md"
+  mkdir -p "$BASE"
+  touch "$path" || error "Failed to create file: $path"
+
+  print "$C_GREEN" "✔ File created → $path"
+}
+
+genfolder_with_md() {
+  local suffix="$1"
+  [[ -z "$suffix" ]] && error "File suffix cannot be empty"
+
+  genfolder
+  local path="$BASE_NOW/index.md"
+  touch "$path" || error "Failed to create file: $path"
+
+  print "$C_GREEN" "✔ File created → $path"
+}
+
+# ──────────────────────────────────────────────────────
+# MENU
+
+print "$C_YELLOW" "📦 PICK AN OPTION"
+print "$C_PURPLE" "  [1] Generate folder only"
+print "$C_PURPLE" "  [2] Generate markdown file only"
+print "$C_PURPLE" "  [3] Generate folder + markdown inside"
+
+ask "$C_YELLOW" "➜ Your choice: "
+read -r CHOICE
+
+case "$CHOICE" in
+  1)
+    genfolder
+    ;;
+  2)
+    ask "$C_PURPLE" "➜ Enter file suffix (e.g. post-name): "
+    read -r SUFFIX
+    genmdfile "$SUFFIX"
+    ;;
+  3)
+    ask "$C_PURPLE" "➜ Enter file name (without .md): "
+    read -r SUFFIX
+    genfolder_with_md "$SUFFIX"
+    ;;
+  *)
+    error "Invalid option. Please choose 1, 2, or 3."
+    ;;
+esac
