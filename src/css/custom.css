@@ -1,29 +1,75 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #3b82f6;
-  --ifm-color-primary-dark: #2563eb;
-  --ifm-color-primary-darker: #1d4ed8;
-  --ifm-color-primary-darkest: #1e40af;
-  --ifm-color-primary-light: #60a5fa;
-  --ifm-color-primary-lighter: #93c5fd;
-  --ifm-color-primary-lightest: #bfdbfe;
+  --ifm-color-primary: #14b8a6;        /* teal-500 */
+  --ifm-color-primary-dark: #0d9488;   /* teal-600 */
+  --ifm-color-primary-darker: #0f766e; /* teal-700 */
+  --ifm-color-primary-darkest: #134e4a;/* teal-900 */
+  --ifm-color-primary-light: #2dd4bf;  /* teal-400 */
+  --ifm-color-primary-lighter: #5eead4;/* teal-300 */
+  --ifm-color-primary-lightest: #99f6e4;/* teal-200 */
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.04);
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #60a5fa;
-  --ifm-color-primary-dark: #3b82f6;
-  --ifm-color-primary-darker: #2563eb;
-  --ifm-color-primary-darkest: #1e40af;
-  --ifm-color-primary-light: #93c5fd;
-  --ifm-color-primary-lighter: #bfdbfe;
-  --ifm-color-primary-lightest: #dbeafe;
+  --ifm-color-primary: #2dd4bf;        /* teal-400 */
+  --ifm-color-primary-dark: #14b8a6;   /* teal-500 */
+  --ifm-color-primary-darker: #0d9488; /* teal-600 */
+  --ifm-color-primary-darkest: #134e4a;/* teal-900 */
+  --ifm-color-primary-light: #5eead4;  /* teal-300 */
+  --ifm-color-primary-lighter: #99f6e4;/* teal-200 */
+  --ifm-color-primary-lightest: #ccfbf1;/* teal-100 */
+
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.06);
+}
+/* =========================
+   Footer – Pure Dark (Rakiz)
+   ========================= */
+
+/* Light mode (keep it simple & neutral) */
+.footer {
+  background-color: #ffffff;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer__title {
+  color: #111827;
+  font-weight: 600;
+}
+
+.footer__link-item {
+  color: #4b5563;
+  transition: color 0.15s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.footer__copyright {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Dark mode – PURE DARK */
+[data-theme='dark'] .footer {
+  background-color: #1b1b1d;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme='dark'] .footer__title {
+  color: #eaeaea;
+}
+
+[data-theme='dark'] .footer__link-item {
+  color: #b3b3b3;
+}
+
+[data-theme='dark'] .footer__link-item:hover {
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .footer__copyright {
+  color: #8a8a8a;
 }

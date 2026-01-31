@@ -1,56 +1,51 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
   {
     title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Rakiz was designed from the ground up to be easily installed and
-        used to get your daily production up and focused.
+        Rakiz is designed to be simple and intuitive from the very first launch,
+        so you can focus on your tasks without friction.
       </>
     ),
   },
   {
     title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        rakiz lets you focus on your work, and we&apos;ll do the chores. Go
-        ahead and move to your work.
+        Rakiz helps you eliminate distractions and structure your time,
+        letting you stay focused on what truly matters.
       </>
     ),
   },
   {
     title: 'Powered by Flutter',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Rakiz is built with Flutter, a modern framework by Google. which makes
-        it fast, reliable, and beautiful.
+        Built with Flutter, Rakiz delivers a fast, smooth, and beautiful
+        experience across platforms.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+      <div className={styles.featureCard}>
+        <Heading as="h3" className={styles.featureTitle}>
+          {title}
+        </Heading>
+        <p className={styles.featureDescription}>{description}</p>
       </div>
     </div>
   );

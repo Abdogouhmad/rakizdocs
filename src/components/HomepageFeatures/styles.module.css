@@ -1,11 +1,41 @@
 .features {
+  padding: 4rem 0;
+
+  /* Mobile layout: stack cards with space */
   display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
+  flex-direction: column; /* stack vertically */
+  gap: 1.5rem;           /* spacing between cards */
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+/* Keep card styles as-is */
+.featureCard {
+  height: 100%;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.featureTitle {
+  margin-bottom: 0.5rem;
+}
+
+.featureDescription {
+  color: var(--ifm-color-content-secondary);
+  line-height: 1.6;
+}
+
+/* Only apply column layout on small screens */
+@media (min-width: 641px) {
+  .features {
+    flex-direction: row; /* or grid layout if you prefer */
+    flex-wrap: wrap;
+    gap: 2rem; /* spacing between columns on desktop */
+  }
 }
