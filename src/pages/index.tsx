@@ -29,7 +29,7 @@ function HomepageHeader() {
                 'button button--primary button--lg',
                 styles.downloadButton
               )}
-              href="/assets/apks/rakiz-v0.3.5.apk"
+              href="/assets/apks/rakiz-v0.4.1.apk"
               download
             >
               Download for Android
