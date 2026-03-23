@@ -1,12 +1,12 @@
-import type { ReactNode } from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import Layout from '@theme/Layout';
-import Heading from '@theme/Heading';
+import type { ReactNode } from "react";
+import clsx from "clsx";
+import Link from "@docusaurus/Link";
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import Layout from "@theme/Layout";
+import Heading from "@theme/Heading";
 
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import styles from './index.module.css';
+import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import styles from "./index.module.css";
 
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
@@ -19,17 +19,15 @@ function HomepageHeader() {
             {siteConfig.title}
           </Heading>
 
-          <p className={styles.heroSubtitle}>
-            {siteConfig.tagline}
-          </p>
+          <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
 
           <div className={styles.heroActions}>
             <a
               className={clsx(
-                'button button--primary button--lg',
-                styles.downloadButton
+                "button button--primary button--lg",
+                styles.downloadButton,
               )}
-              href="/apks/rakiz-v0.4.3.apk"
+              href="/apks/rakiz-v1.0.0.apk"
               // href="/assets/apks/rakiz-v0.4.3.apk"
               download
             >
@@ -38,8 +36,8 @@ function HomepageHeader() {
 
             <Link
               className={clsx(
-                'button button--secondary button--lg',
-                styles.secondaryButton
+                "button button--secondary button--lg",
+                styles.secondaryButton,
               )}
               to="/blog"
             >
@@ -58,7 +56,8 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={siteConfig.title}
-      description="Rakiz is a minimal and focused timer app built with Flutter.">
+      description="Rakiz is a minimal and focused timer app built with Flutter."
+    >
       <HomepageHeader />
       <main>
         <HomepageFeatures />
