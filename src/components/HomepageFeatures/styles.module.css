@@ -36,6 +36,6 @@
   .features {
     flex-direction: row; /* or grid layout if you prefer */
     flex-wrap: wrap;
-    gap: 2rem; /* spacing between columns on desktop */
+    gap: 3rem; /* spacing between columns on desktop */
   }
 }
